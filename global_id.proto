@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "./service"; // 用于指定生成代码位置
+
+// define request
+message GlobalIDRequest{
+    string LineNumber = 1;
+    string ProductNumber = 2;
+}
+
+message GlobalIDResponse{
+    string GlobalID = 1;
+}
+
+service GlobalIDService{
+    rpc GetGlobalID(GlobalIDRequest)returns(GlobalIDResponse);
+}
+
